@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Dark Mode Variables - Futuristic DevOps Workstation */
+  --bg-primary: #030712;      /* Deep Rich Black/Navy */
+  --bg-secondary: #0b1528;    /* Premium Deep Navy */
+  --bg-tertiary: #112240;     /* Muted Light Navy */
+  --text-primary: #f8fafc;    /* Clean White */
+  --text-secondary: #94a3b8;  /* Slate Gray */
+  --accent-primary: #06b6d4;  /* Cyber Cyan */
+  --accent-secondary: #3b82f6;/* Royal Blue */
+  --accent-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  --accent-gradient-text: linear-gradient(135deg, #00f2fe, #4facfe);
+  
+  --glass-bg: rgba(11, 21, 40, 0.7);
+  --glass-border: rgba(6, 182, 212, 0.15);
+  --glass-shadow: rgba(0, 0, 0, 0.4);
+  --glow-effect: 0 0 20px rgba(6, 182, 212, 0.25);
+  
+  /* Terminal overrides for Dark */
+  --terminal-bg: rgba(3, 7, 18, 0.85);
+  --terminal-header: rgba(3, 7, 18, 0.95);
+  --terminal-text: #e2e8f0;
+  --terminal-prompt: #06b6d4;
+  --terminal-input-text: #f8fafc;
+  
+  --blob-opacity: 0.12;
+  
+  --font-title: 'Poppins', 'Inter', sans-serif;
+  --font-body: 'Inter', 'Poppins', sans-serif;
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --border-radius-sm: 8px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 24px;
+}
+
+[data-theme="light"] {
+  /* Light Mode Variables - Classic Golden-Bronze & Cream Paper Theme */
+  --bg-primary: #fdfbf7;      /* Warm Champagne Paper background */
+  --bg-secondary: #ffffff;    /* Pure white panels */
+  --bg-tertiary: #f7f4ea;     /* Warm gold-tinted panels */
+  --text-primary: #2a2415;    /* Deep Dark Bronze/Charcoal */
+  --text-secondary: #6b5f4c;  /* Rich Warm Muted Gold-Grey */
+  --accent-primary: #c5a059;  /* Premium Classic Gold */
+  --accent-secondary: #906e2f;/* Deep Bronze */
+  --accent-gradient: linear-gradient(135deg, #c5a059 0%, #906e2f 100%);
+  --accent-gradient-text: linear-gradient(135deg, #c5a059, #906e2f);
+  
+  --glass-bg: #ffffff;        /* Solid white cards */
+  --glass-border: rgba(197, 160, 89, 0.25); /* Elegant gold-bronze border */
+  --glass-shadow: 0 6px 18px rgba(144, 110, 47, 0.04); /* Soft luxury shadow */
+  --glow-effect: 0 0 15px rgba(197, 160, 89, 0.08);   /* Subtle warm gold aura */
+  
+  /* Terminal overrides for Light - Classic Gold Console */
+  --terminal-bg: #ffffff;
+  --terminal-header: #f7f4ea;
+  --terminal-text: #2a2415;
+  --terminal-prompt: #906e2f;
+  --terminal-input-text: #2a2415;
+  
+  --blob-opacity: 0;          /* Hide background blobs in light mode */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 10px;
+  border: 2px solid var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Typography & Layout Utilities */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-smooth);
+}
+
+section {
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.gradient-text {
+  background: var(--accent-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Premium UI elements */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--border-radius-md);
+  transition: var(--transition-smooth);
+}
+
+.glass-panel:hover {
+  border-color: rgba(6, 182, 212, 0.3);
+  box-shadow: var(--glow-effect), var(--glass-shadow);
+}
+
+[data-theme="light"] .glass-panel:hover {
+  border-color: rgba(197, 160, 89, 0.45);
+  box-shadow: 0 10px 25px rgba(144, 110, 47, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Premium Buttons */
+.btn-primary {
+  background: var(--accent-gradient);
+  color: #ffffff;
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--border-radius-sm);
+  border: none;
+  font-family: var(--font-title);
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+}
+
+[data-theme="light"] .btn-primary {
+  box-shadow: 0 4px 12px rgba(16, 24, 32, 0.15);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(6, 182, 212, 0.5), var(--glow-effect);
+}
+
+[data-theme="light"] .btn-primary:hover {
+  box-shadow: 0 8px 20px rgba(16, 24, 32, 0.25);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--border-radius-sm);
+  border: 2px solid var(--accent-primary);
+  font-family: var(--font-title);
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition-smooth);
+}
+
+.btn-secondary:hover {
+  background: rgba(6, 182, 212, 0.1);
+  transform: translateY(-3px);
+  border-color: var(--accent-primary);
+  box-shadow: var(--glow-effect);
+}
+
+[data-theme="light"] .btn-secondary:hover {
+  background: rgba(16, 24, 32, 0.04);
+  box-shadow: none;
+}
+
+/* Background Blobs */
+.bg-blob {
+  position: fixed;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: var(--blob-opacity);
+  z-index: 0;
+  pointer-events: none;
+  transition: var(--transition-smooth);
+}
+
+.blob-cyan {
+  background: var(--accent-primary);
+  top: 15%;
+  left: 10%;
+  animation: float-blob-1 25s infinite ease-in-out;
+}
+
+.blob-purple {
+  background: #a855f7;
+  bottom: 20%;
+  right: 10%;
+  animation: float-blob-2 30s infinite ease-in-out;
+}
+
+/* Mouse spotlight glow */
+.spotlight-aura {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, rgba(6, 182, 212, 0) 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: screen;
+}
+
+[data-theme="light"] .spotlight-aura {
+  display: none; /* Turn off tracking spotlight in light mode for classic paper layout */
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse-glow {
+  0% { opacity: 0.6; box-shadow: 0 0 10px rgba(6, 182, 212, 0.1); }
+  50% { opacity: 1; box-shadow: 0 0 25px rgba(6, 182, 212, 0.35); }
+  100% { opacity: 0.6; box-shadow: 0 0 10px rgba(6, 182, 212, 0.1); }
+}
+
+@keyframes float-blob-1 {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -60px) scale(1.15); }
+  66% { transform: translate(-30px, 30px) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes float-blob-2 {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-50px, 50px) scale(0.85); }
+  66% { transform: translate(40px, -30px) scale(1.1); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+/* Page transitions */
+.page-container {
+  opacity: 0;
+  animation: fadeIn 0.8s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 3.5rem 1.25rem;
+  }
+  .bg-blob {
+    width: 250px;
+    height: 250px;
+    filter: blur(80px);
+  }
+}
+
+/* GitHub Link Hover Utility */
+.github-hover {
+  transition: var(--transition-smooth);
+}
+
+.github-hover:hover {
+  color: var(--accent-primary) !important;
+  transform: translateY(-2px);
+}
+
+/* Print Styles for Resume Modal PDF generation */
+@media print {
+  /* Hide all background website elements during printing */
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  
+  body * {
+    visibility: hidden;
+  }
+
+  /* Make only the resume print container visible */
+  #resume-print-area, 
+  #resume-print-area * {
+    visibility: visible;
+  }
+
+  #resume-print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* Exclude modal frames and headers */
+  .no-print,
+  #resume-modal-container {
+    border: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+  }
+}
+
+
